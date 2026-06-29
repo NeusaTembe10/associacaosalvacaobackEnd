@@ -65,15 +65,15 @@ app.use(async (req: Request, res: Response, next: NextFunction) => {
 // =====================
 // ROTAS
 // =====================
-app.use("/api/auth", authRoutes);
-app.use("/api/members", verifyToken, memberRoutes);
-app.use("/api/cultos", verifyToken, cultoRoutes);
+app.use("/auth", authRoutes);
+app.use("/members", verifyToken, memberRoutes);
+app.use("/cultos", verifyToken, cultoRoutes);
 app.post("/api/test", (req, res) => {
   res.json({ ok: true });
 });
 
 // HEALTH CHECK
-app.get("/api/health", (req: Request, res: Response) => {
+app.get("/health", (req: Request, res: Response) => {
   res.json({ status: "ok", timestamp: new Date() });
 });
 
